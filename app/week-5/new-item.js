@@ -54,23 +54,24 @@ export default function NewItem() {
     else disableDecrementButton = false; 
 
 
-    let buttonStyle = "bg-blue-800 rounded mx-2 px-6 py-2 hover:bg-blue-500 active:bg-blue-400 disabled:bg-neutral-600";
+    let buttonStyle = "bg-blue-800 rounded py-1 hover:bg-blue-500 active:bg-blue-400 disabled:bg-neutral-600 w-full";
 
 
     return(
-        <form onSubmit={handleSubmit}>
-            <div>
-                <label>Item Name:</label>
-                <input type="text" required onChange={handleNameChange} value={name}></input>
+        <form onSubmit={handleSubmit} class="flex flex-wrap max-w-sm px-2 py-3 text-white bg-neutral-800 rounded border-2  border-neutral-500">
+            <div class="w-full m-4">
+                <label class="px-2">Item Name:</label>
+                <input type="text" required onChange={handleNameChange} value={name} class="text-black bg-white rounded px-2 py-1"></input>
             </div>
-            <div class="text-white bg-neutral-800 m-2 px-3 py-2 rounded max-w-48 border-2 border-neutral-500 text-center">
-                <p class="font-bold text-2x1 pb-4">Count: {quantity}</p>
+            <div class="flex w-56 m-4">
+                <p class="px-2 py-1">Quantity:</p>
                 <button type="button" onClick={decrement} disabled={disableDecrementButton} class={buttonStyle}>-</button>
+                <p class="py-1 px-2">{quantity}</p>
                 <button type="button" onClick={increment} disabled={disableIncrementButton} class={buttonStyle}>+</button>
             </div>
-            <div>
-                <label>Category:</label>
-                <select onChange={handleCategoryChange} value={category}>
+            <div class="w-full m-4">
+                <label class="px-2">Category:</label>
+                <select onChange={handleCategoryChange} value={category} class="text-black bg-white rounded px-2 py-1">
                     <option value="produce">Produce</option>
                     <option value="dairy">Dairy</option>
                     <option value="bakery">Bakery</option>
@@ -84,8 +85,8 @@ export default function NewItem() {
                     <option value="other">Other</option>
                 </select>
             </div>
-            <div>
-                <button>Submit</button>
+            <div class="w-full">
+                <button class={buttonStyle}>Submit</button>
             </div>
         </form>
 
