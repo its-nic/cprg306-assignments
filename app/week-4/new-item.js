@@ -16,7 +16,9 @@ export default function NewItem() {
 
     return(
         <div>
-
+            <p>Count: {quantity}</p>
+            <button onClick={decrement}>-</button>
+            <button onClick={increment}>+</button>
         </div>
     );
 }
