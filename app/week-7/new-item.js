@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-export default function NewItem() {
+export default function NewItem({onAddItem}) {
 
     const [name, setName] = useState("");
     const [quantity, setQuantity] = useState(1);
@@ -12,19 +12,18 @@ export default function NewItem() {
     const handleSubmit = (event) => {
         event.preventDefault();
 
+        const newId = Math.floor(Math.random() * 1000000)
+
         let item = {
-            nme: name,
-            qty: quantity,
-            cat: category
+            id: newId,
+            name: name,
+            quantity: quantity,
+            category: category
         };
 
         console.dir(item);
 
-        alert(`
-            Name: ${item.nme}
-            Quantity: ${item.qty}
-            Category: ${item.cat}
-            `);
+        onAddItem(item);
 
         setName("");
         setQuantity(1);
