@@ -18,11 +18,15 @@ export default function ItemList({items}) {
 
     return(
         <div>
-          <label class="m-3">Sort by:</label>
-          <button onClick={sortName} class={buttonStyle}>Name</button>
-          <button onClick={sortCategory} class={buttonStyle}>Category</button>
+          <label className="m-3">Sort by:</label>
+          <button onClick={sortName} className={buttonStyle}>Name</button>
+          <button onClick={sortCategory} className={buttonStyle}>Category</button>
             <ul>
-              {sortedItems.map((item) => (<Item name={item.name} quantity={item.quantity} category={item.category} />))}
+              {sortedItems.map((item) => (
+                <li key={item.id} className="bg-neutral-800 m-2 px-3 py-2 rounded max-w-md border-2 border-neutral-500">
+                  <Item name={item.name} quantity={item.quantity} category={item.category} />
+                </li>                
+              ))}
             </ul>
         </div>
     );

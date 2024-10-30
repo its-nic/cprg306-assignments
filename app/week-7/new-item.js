@@ -57,20 +57,20 @@ export default function NewItem({onAddItem}) {
 
 
     return(
-        <form onSubmit={handleSubmit} class="flex flex-wrap max-w-sm px-2 py-3 text-white bg-neutral-800 rounded border-2  border-neutral-500">
-            <div class="w-full m-4">
-                <label class="px-2">Item Name:</label>
-                <input type="text" required onChange={handleNameChange} value={name} class="text-black bg-white rounded px-2 py-1"></input>
+        <form onSubmit={handleSubmit} className="flex flex-wrap max-w-sm px-2 py-3 text-white bg-neutral-800 rounded border-2  border-neutral-500">
+            <div className="w-full m-4">
+                <label className="px-2">Item Name:</label>
+                <input type="text" required onChange={handleNameChange} value={name} className="text-black bg-white rounded px-2 py-1"></input>
             </div>
-            <div class="flex w-56 m-4">
-                <p class="px-2 py-1">Quantity:</p>
-                <button type="button" onClick={decrement} disabled={disableDecrementButton} class={buttonStyle}>-</button>
-                <p class="py-1 px-2">{quantity}</p>
-                <button type="button" onClick={increment} disabled={disableIncrementButton} class={buttonStyle}>+</button>
+            <div className="flex w-56 m-4">
+                <p className="px-2 py-1">Quantity:</p>
+                <button type="button" onClick={decrement} disabled={disableDecrementButton} className={buttonStyle}>-</button>
+                <p className="py-1 px-2">{quantity}</p>
+                <button type="button" onClick={increment} disabled={disableIncrementButton} className={buttonStyle}>+</button>
             </div>
-            <div class="w-full m-4">
-                <label class="px-2">Category:</label>
-                <select onChange={handleCategoryChange} value={category} class="text-black bg-white rounded px-2 py-1">
+            <div className="w-full m-4">
+                <label className="px-2">Category:</label>
+                <select onChange={handleCategoryChange} value={category} className="text-black bg-white rounded px-2 py-1">
                     <option value="produce">Produce</option>
                     <option value="dairy">Dairy</option>
                     <option value="bakery">Bakery</option>
@@ -84,8 +84,8 @@ export default function NewItem({onAddItem}) {
                     <option value="other">Other</option>
                 </select>
             </div>
-            <div class="w-full">
-                <button class={buttonStyle}>Submit</button>
+            <div className="w-full">
+                <button className={buttonStyle}>Submit</button>
             </div>
         </form>
 
