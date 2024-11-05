@@ -17,18 +17,31 @@ export default function MealIdeas({ingredient}) {
         })();
     }, [ingredient]);
 
-
-
     return(
         <div>
-            <h1>Recipes:</h1>
-            <ul>
-                {meals.map((meal) => (
-                <li key={meal.idMeal} className="bg-neutral-800 m-2 px-3 py-2 rounded max-w-md border-2 border-neutral-500">
-                  {meal.strMeal}
-                </li>
-                ))}                 
-            </ul>
+            <h1 className="text-lg font-bold">Meal Ideas</h1>
+            {meals == null ? (
+                ingredient == "none" ? (
+                    <div>
+                        <p>Select an item to view meal ideas.</p>
+                    </div>
+                ):(
+                    <div>
+                        <p>No meal ideas for {ingredient}.</p>
+                    </div>
+                )
+            ):(
+                <div>
+                    <p className="pl-5 my-2">Meal ideas for {ingredient}:</p>
+                    <ul>                    
+                        {meals != null && meals.map((meal) => (
+                        <li key={meal.idMeal} className="pl-5">
+                        &#8226; {meal.strMeal}
+                        </li>
+                        ))}
+                    </ul>
+                </div>
+            )}           
         </div>
     );
 }

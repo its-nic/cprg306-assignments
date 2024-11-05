@@ -57,7 +57,7 @@ export default function NewItem({onAddItem}) {
 
 
     return(
-        <form onSubmit={handleSubmit} className="flex flex-wrap max-w-sm px-2 py-3 text-white bg-neutral-800 rounded border-2  border-neutral-500">
+        <form onSubmit={handleSubmit} className="flex flex-wrap max-w-sm mx-5 my-3 px-2 py-3 text-white bg-neutral-800 rounded border-2  border-neutral-500">
             <div className="w-full m-4">
                 <label className="px-2">Item Name:</label>
                 <input type="text" required onChange={handleNameChange} value={name} className="text-black bg-white rounded px-2 py-1"></input>
