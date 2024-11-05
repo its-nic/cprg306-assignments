@@ -32,7 +32,7 @@ export default function MealIdeas({ingredient}) {
                 )
             ):(
                 <div>
-                    <p className="pl-5 my-2">Meal ideas for {ingredient}:</p>
+                    <p className="mb-2">Meal ideas for {ingredient}:</p>
                     <ul>                    
                         {meals != null && meals.map((meal) => (
                         <li key={meal.idMeal} className="pl-5">
