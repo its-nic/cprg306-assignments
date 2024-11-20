@@ -1,21 +1,28 @@
 "use client"
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import NewItem from "./new-item";
 import ItemList from "./item-list";
-import itemsData from "./items.json";
+import { getItems, addItem } from "../_services/shopping-list-service";
 import MealIdeas from "./meal-ideas";
 import { useUserAuth } from "../_utils/auth-context";
 import Link from "next/link";
 
 export default function Page() {
-    const [items, setItems] = useState(itemsData);
+    const [items, setItems] = useState([]);
     const [selectedItemName, setSelectedItemName] = useState("none");
 
     const {user} = useUserAuth();
 
+    useEffect(() => {
+        if(user) {
+            getItems(user.uid, setItems);
+        }
+    })
+
     const handleAddItem = (newItemObj) => {
-        setItems([...items, newItemObj]);
+        addItem(user.uid, newItemObj);
+        getItems(user.uid, setItems);
     }
 
     const handleItemSelect = (itemName) => {
@@ -42,7 +49,7 @@ export default function Page() {
             ):(
                 <div>
                     <p>You must be logged in to view this page.</p>
-                    <button className={buttonStyle}><Link href="/week-9/">Return to Login</Link></button>
+                    <button className={buttonStyle}><Link href="/week-10/">Return to Login</Link></button>
                 </div>
             )}
         </main>

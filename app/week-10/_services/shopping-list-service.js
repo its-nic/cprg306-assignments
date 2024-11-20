@@ -1,7 +1,7 @@
 import { db } from "../_utils/firebase";
 import { collection, getDocs, addDoc, query } from "firebase/firestore";
 
-export async function getItems(userId) {
+export async function getItems(userId, itemsStateSetter) {
     try {
         const allItemsReference = collection(db, "users", userId, "items");
         const allItemsQuery = query(allItemsReference);
@@ -16,6 +16,7 @@ export async function getItems(userId) {
             }
             itemsArray.push(thisItem);
         });
+        itemsStateSetter(itemsArray);
     } catch (error) {
         console.log(error);
     }

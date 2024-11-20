@@ -38,7 +38,7 @@ export default function LoginPage() {
                         <img className="w-6 h-6" src={user.photoURL}/>
                         <p className="px-4">Welcome {user.displayName}</p>
                     </section>
-                    <button className={buttonStyle}><Link href="/week-9/shopping-list/">Shopping List</Link></button>
+                    <button className={buttonStyle}><Link href="/week-10/shopping-list/">Shopping List</Link></button>
                     <button className={buttonStyle} onClick={handleSignOut}>Sign Out</button>
                 </div>
             ):(
